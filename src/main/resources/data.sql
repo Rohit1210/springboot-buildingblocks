@@ -1,0 +1,14 @@
+INSERT INTO CLIENT
+(ID, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, ROLE, SSN, USER_NAME)
+VALUES
+(101, 'rohit@example.com', 'Rohit', 'Tiwari', 'ADMIN', 'ssn101', 'rohit123');
+
+INSERT INTO CLIENT
+(ID, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, ROLE, SSN, USER_NAME)
+VALUES
+(102, 'adu@example.com', 'Aditi', 'Sharma', 'ADMIN', 'ssn102', 'aditi123');
+
+INSERT INTO CLIENT
+(ID, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, ROLE, SSN, USER_NAME)
+VALUES
+(103, 'sam@example.com', 'Sam', 'Gupta', 'ADMIN', 'ssn103', 'sam123');
