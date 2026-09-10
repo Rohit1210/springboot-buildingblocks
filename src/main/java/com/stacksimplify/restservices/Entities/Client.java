@@ -1,6 +1,7 @@
 package com.stacksimplify.restservices.Entities;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
 @Table(name = "Client")
@@ -10,6 +11,7 @@ public class Client {
     @GeneratedValue
     private Long id;
 
+    @NotNull
     @Column(name = "USER_NAME", length = 50, nullable = false, unique = true)
     private String username;
 
