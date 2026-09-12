@@ -19,19 +19,20 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/users")
 @Validated
 public class UserController {
 
     @Autowired
     UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping
     public List<Client> getAllUsersMethod() {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/users")
-    public ResponseEntity<Void> createUser(@Validated @RequestBody Client client, UriComponentsBuilder builder) {
+    @PostMapping
+    public ResponseEntity<Void> createUser(@RequestBody Client client, UriComponentsBuilder builder) {
         try {
             userService.createUser(client);
             HttpHeaders httpHeaders = new HttpHeaders();
@@ -43,7 +44,7 @@ public class UserController {
 
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public Optional<Client> getUserById(@PathVariable @Min(value = 1, message = "ID must be greater than 0") Long id) {
         try{
             return userService.getUserById(id);
@@ -52,7 +53,7 @@ public class UserController {
         }
     }
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/{id}")
     public Client updateUserById(@RequestBody Client client, @PathVariable Long id) {
         try{
             return userService.updateUserById(client, id);
@@ -61,12 +62,12 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/{id}")
     public void deleteUserById(@PathVariable Long id) {
         userService.deleteUserById(id);
     }
 
-    @GetMapping("/users/byusername/{username}")
+    @GetMapping("/byusername/{username}")
     public Client getUserByUsername(@PathVariable String username) throws UserNameNotFoundException {
         Client client = userService.getUserByUsername(username);
         if (client == null)

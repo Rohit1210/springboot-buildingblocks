@@ -1,7 +1,9 @@
 package com.stacksimplify.restservices.Entities;
 
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
+import jakarta.validation.constraints.NotNull;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Client")
@@ -10,6 +12,9 @@ public class Client {
     @Id
     @GeneratedValue
     private Long id;
+
+    @OneToMany(mappedBy = "client")
+    private List<Order> order;
 
     @NotNull
     @Column(name = "USER_NAME", length = 50, nullable = false, unique = true)
@@ -97,6 +102,14 @@ public class Client {
 
     public void setSsn(String ssn) {
         this.ssn = ssn;
+    }
+
+    public List<Order> getOrder() {
+        return order;
+    }
+
+    public void setOrder(List<Order> order) {
+        this.order = order;
     }
 
     @Override
