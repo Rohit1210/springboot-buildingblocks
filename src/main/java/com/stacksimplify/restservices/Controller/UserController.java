@@ -16,17 +16,18 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping
     public List<Client> getAllUsersMethod() {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public ResponseEntity<Void> createUser(@RequestBody Client client, UriComponentsBuilder builder) {
         try {
             userService.createUser(client);
@@ -39,7 +40,7 @@ public class UserController {
 
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public Optional<Client> getUserById(@PathVariable Long id) {
         try{
             return userService.getUserById(id);
@@ -48,7 +49,7 @@ public class UserController {
         }
     }
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/{id}")
     public Client updateUserById(@RequestBody Client client, @PathVariable Long id) {
         try{
             return userService.updateUserById(client, id);
@@ -57,12 +58,12 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/{id}")
     public void deleteUserById(@PathVariable Long id) {
         userService.deleteUserById(id);
     }
 
-    @GetMapping("/users/byusername/{username}")
+    @GetMapping("/byusername/{username}")
     public Client getUserByUsername(@PathVariable String username) {
         return userService.getUserByUsername(username);
     }
