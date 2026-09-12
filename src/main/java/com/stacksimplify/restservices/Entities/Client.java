@@ -1,6 +1,7 @@
 package com.stacksimplify.restservices.Entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private List<Order> order;
 
+    @NotNull
     @Column(name = "USER_NAME", length = 50, nullable = false, unique = true)
     private String username;
 
