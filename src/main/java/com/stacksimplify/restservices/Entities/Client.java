@@ -2,16 +2,17 @@ package com.stacksimplify.restservices.Entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.util.List;
 
 @Entity
 @Table(name = "Client")
-public class Client {
+public class Client extends RepresentationModel<Client> {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long userid;
 
     @OneToMany(mappedBy = "client")
     private List<Order> order;
@@ -38,22 +39,23 @@ public class Client {
     public Client() {
     }
 
-    public Client(Long id, String username, String firstname, String lastname, String email, String ssn, String role) {
-        this.id = id;
+    public Long getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Long userid) {
+        this.userid = userid;
+    }
+
+    public Client(Long userid, String ssn, String role, String email, List<Order> order, String username, String firstname, String lastname) {
+        this.userid = userid;
+        this.ssn = ssn;
+        this.role = role;
+        this.email = email;
+        this.order = order;
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.email = email;
-        this.ssn = ssn;
-        this.role = role;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUsername() {
@@ -114,8 +116,9 @@ public class Client {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
+        return "Client{" +
+                "userid=" + userid +
+                ", order=" + order +
                 ", username='" + username + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
