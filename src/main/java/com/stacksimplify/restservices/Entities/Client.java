@@ -1,5 +1,7 @@
 package com.stacksimplify.restservices.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.hateoas.RepresentationModel;
@@ -8,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Client")
+@JsonIgnoreProperties({"firstname", "lastname"})
 public class Client extends RepresentationModel<Client> {
 
     @Id
@@ -34,6 +37,7 @@ public class Client extends RepresentationModel<Client> {
     private String role;
 
     @Column(name = "SSN", length = 50, nullable = false, unique = true)
+    @JsonIgnore
     private String ssn;
 
     public Client() {
