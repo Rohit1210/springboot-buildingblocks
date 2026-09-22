@@ -51,6 +51,9 @@ public class Client extends RepresentationModel<Client> {
     //@JsonIgnore
     private String ssn;
 
+    @Column(name = "ADDRESS")
+    private String address;
+
     public Client() {
     }
 
@@ -62,15 +65,16 @@ public class Client extends RepresentationModel<Client> {
         this.userid = userid;
     }
 
-    public Client(Long userid, String ssn, String role, String email, List<Order> order, String username, String firstname, String lastname) {
+    public Client(Long userid, List<Order> order, String username, String firstname, String lastname, String email, String role, String ssn, String address) {
         this.userid = userid;
-        this.ssn = ssn;
-        this.role = role;
-        this.email = email;
         this.order = order;
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.email = email;
+        this.role = role;
+        this.ssn = ssn;
+        this.address = address;
     }
 
     public String getUsername() {
@@ -129,6 +133,14 @@ public class Client extends RepresentationModel<Client> {
         this.order = order;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -140,6 +152,7 @@ public class Client extends RepresentationModel<Client> {
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +
                 ", ssn='" + ssn + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }
