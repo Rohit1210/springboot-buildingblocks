@@ -1,17 +1,17 @@
 INSERT INTO CLIENT
-(USERID, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, ROLE, SSN, USER_NAME)
+(USERID, ADDRESS, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, ROLE, SSN, USER_NAME)
 VALUES
-(101, 'rohit@example.com', 'Rohit', 'Tiwari', 'ADMIN', 'ssn101', 'rohit123');
+(101, 'Bhopal', 'rohit@example.com', 'Rohit', 'Tiwari', 'ADMIN', 'ssn101', 'rohit123');
 
 INSERT INTO CLIENT
-(USERID, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, ROLE, SSN, USER_NAME)
+(USERID, ADDRESS, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, ROLE, SSN, USER_NAME)
 VALUES
-(102, 'adu@example.com', 'Aditi', 'Sharma', 'ADMIN', 'ssn102', 'aditi123');
+(102, 'Indore','adu@example.com', 'Aditi', 'Sharma', 'ADMIN', 'ssn102', 'aditi123');
 
 INSERT INTO CLIENT
-(USERID, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, ROLE, SSN, USER_NAME)
+(USERID, ADDRESS, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, ROLE, SSN, USER_NAME)
 VALUES
-(103, 'sam@example.com', 'Sam', 'Gupta', 'ADMIN', 'ssn103', 'sam123');
+(103, 'Ujjain', 'sam@example.com', 'Sam', 'Gupta', 'ADMIN', 'ssn103', 'sam123');
 
 INSERT INTO orders values(2001, 'order11', 101);
 INSERT INTO orders values(2002, 'order12', 101);
